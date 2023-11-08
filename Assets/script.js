@@ -6,7 +6,7 @@ var generateBtn = document.querySelector("#generate");
 //wrote function to test button functionality
 //changed var pwlength to reflect user input
 function generatePassword() {
-//Housekeeping
+  //Housekeeping
   var password = ""
   var possible = ""
   var lowercase = "abcdefghijklmnopqrstuvwxyz"
@@ -19,19 +19,28 @@ function generatePassword() {
   var hasNumbers = true
   var hasSpecial = true
 
+  //moved prompt into generatepassword function to allow the user to re-enter the prompt
   var choosepwlength = prompt("Please select a password length between 8 and 128 characters.", "Enter desired password length here.");
 
-if (choosepwlength < 8 || choosepwlength > 128) {
+  if (choosepwlength < 8 || choosepwlength > 128) {
   alert("Please choose a number between 8 and 128.")
   return null;
-}
-
-//added alert if no inputs are chosen
-  if (!hasLowerCase && !hasUpperCase) {
-    alert("Please choose at least one character type!");
-    return;
   }
-//added all input types to possible
+
+  var hasLowerCase = window.confirm("Do you want to include lowercase letters?");
+
+  var hasUpperCase = window.confirm("Do you want to include uppercase letters?");
+
+  var hasNumbers = window.confirm("Do you want to include numbers?");
+
+  var hasSpecial = window.confirm("Do you want to include special characters?");
+
+  //added alert if no inputs are chosen
+  if (!hasLowerCase && !hasUpperCase && !hasLowerCase && !hasSpecial) {
+    alert("Please choose at least one character type!");
+    return null;
+  }
+  //added all input types to possible
   if (hasLowerCase) {
     possible += lowercase;
   }
@@ -48,8 +57,8 @@ if (choosepwlength < 8 || choosepwlength > 128) {
     possible += special;
   }
 
-//added for loop to generate lowercase password
-//chanded for loop to work for all input types
+  //added for loop to generate lowercase password
+  //chanded for loop to work for all input types
   for (var i = 0; i < pwlength; i++)
     {
       var random = Math.floor(Math.random() * possible.length);
