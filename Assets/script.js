@@ -1,14 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var choosepwlength = prompt("Please select a password length between 8 and 128 characters.", "Enter desired password length here.");
-
-if (choosepwlength < 8 || choosepwlength > 128) {
-  alert("Please choose a number between 8 and 128.")
-  
-}
+//added promt for password length and alert if an invalid length is chosen
 
 //wrote function to test button functionality
+//changed var pwlength to reflect user input
 function generatePassword() {
 //Housekeeping
   var password = ""
@@ -17,11 +13,19 @@ function generatePassword() {
   var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var numbers = "1234567890"
   var special = "!@#$%^&*()?.,"
-  var pwlength = 12
+  var pwlength = choosepwlength
   var hasLowerCase = true
   var hasUpperCase = true
   var hasNumbers = true
   var hasSpecial = true
+
+  var choosepwlength = prompt("Please select a password length between 8 and 128 characters.", "Enter desired password length here.");
+
+if (choosepwlength < 8 || choosepwlength > 128) {
+  alert("Please choose a number between 8 and 128.")
+  return null;
+}
+
 //added alert if no inputs are chosen
   if (!hasLowerCase && !hasUpperCase) {
     alert("Please choose at least one character type!");
