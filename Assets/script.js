@@ -7,20 +7,38 @@ function generatePassword() {
   var password = ""
   var possible = ""
   var lowercase = "abcdefghijklmnopqrstuvwxyz"
-  var uppdercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var numbers = "1234567890"
   var special = "!@#$%^&*()?.,"
   var pwlength = 12
   var hasLowerCase = true
-  var hasUpperCase = false
-  var hasNumbers = false
-  var hasSpecial = false
-
+  var hasUpperCase = true
+  var hasNumbers = true
+  var hasSpecial = true
+//added alert if no inputs are chosen
   if (!hasLowerCase && !hasUpperCase) {
     alert("Please choose at least one character type!");
     return;
   }
+//added all input types to possible
+  if (hasLowerCase) {
+    possible += lowercase;
+  }
+
+  if (hasUpperCase) {
+    possible += uppercase;
+  }
+
+  if (hasNumbers) {
+    possible += numbers;
+  }
+
+  if (hasSpecial) {
+    possible += special;
+  }
+
 //added for loop to generate lowercase password
+//chanded for loop to work for all input types
   for (var i = 0; i < pwlength; i++)
     {
       var random = Math.floor(Math.random() * possible.length);
