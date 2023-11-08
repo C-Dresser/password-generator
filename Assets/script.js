@@ -1,6 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+var choosepwlength = prompt("Please select a password length between 8 and 128 characters.", "Enter desired password length here.");
+
+if (choosepwlength < 8 || choosepwlength > 128) {
+  alert("Please choose a number between 8 and 128.")
+  
+}
+
 //wrote function to test button functionality
 function generatePassword() {
 //Housekeeping
