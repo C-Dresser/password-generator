@@ -13,7 +13,6 @@ function generatePassword() {
   var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var numbers = "1234567890"
   var special = "!@#$%^&*()?.,"
-  var pwlength = choosepwlength
   var hasLowerCase = true
   var hasUpperCase = true
   var hasNumbers = true
@@ -26,14 +25,28 @@ function generatePassword() {
   alert("Please choose a number between 8 and 128.")
   return null;
   }
-
+console.log (possible+=lowercase)
+  //added confirm boxes for all the character types
   var hasLowerCase = window.confirm("Do you want to include lowercase letters?");
+  if (hasLowerCase) {
+    possible += lowercase;
+  }
 
   var hasUpperCase = window.confirm("Do you want to include uppercase letters?");
+  if (hasUpperCase) {
+    possible += uppercase;
+  }
+
 
   var hasNumbers = window.confirm("Do you want to include numbers?");
+  if (hasNumbers) {
+    possible += numbers;
+  }
 
   var hasSpecial = window.confirm("Do you want to include special characters?");
+  if (hasSpecial) {
+    possible += special;
+  }
 
   //added alert if no inputs are chosen
   if (!hasLowerCase && !hasUpperCase && !hasLowerCase && !hasSpecial) {
@@ -41,28 +54,15 @@ function generatePassword() {
     return null;
   }
   //added all input types to possible
-  if (hasLowerCase) {
-    possible += lowercase;
-  }
 
-  if (hasUpperCase) {
-    possible += uppercase;
-  }
-
-  if (hasNumbers) {
-    possible += numbers;
-  }
-
-  if (hasSpecial) {
-    possible += special;
-  }
 
   //added for loop to generate lowercase password
   //chanded for loop to work for all input types
-  for (var i = 0; i < pwlength; i++)
+  for (var i = 0; i < choosepwlength; i++)
     {
       var random = Math.floor(Math.random() * possible.length);
       password += possible[random];
+      console.log (password)
     }
   
   return password
