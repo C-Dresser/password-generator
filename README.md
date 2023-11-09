@@ -6,6 +6,6 @@ This is a password generator that will generate a password of a length chosen by
 
 ## Screenshots
 
-![image of live site](assets/Images/Password-Generator-image.png)
+![image of live site](Assets/Images/Password-Generator-image.png)
 
 ## Links
