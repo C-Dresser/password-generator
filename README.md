@@ -9,3 +9,5 @@ This is a password generator that will generate a password of a length chosen by
 ![image of live site](Assets/Images/Password-Generator-image.png)
 
 ## Links
+
+[live site](https://c-dresser.github.io/password-generator/)
